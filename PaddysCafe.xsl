@@ -20,7 +20,7 @@
                 <table id="menuTable" class="indent">
                     <thead>
                         <tr>
-                            <th colspan="3">Spa & Wellness Menu</th>
+                            <th colspan="3">Spa and Wellness Menu</th>
                         </tr>
                         <tr>
                             <th>Select</th>
@@ -73,13 +73,10 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-<div class="container">
-<button id="delete" class="btn btn-block btn-danger">Delete</button>
-                    <p class="text-muted">To delete an entree, click the required row first</p>
-
-</div>
-           
-
+            <div class="container">
+                <button id="delete" class="btn btn-block btn-danger">Delete</button>
+                <p class="text-muted">To delete an entree, click the required row first</p>
+            </div>
 </div>
 
 <div class="col-lg-14 text-right order-2">

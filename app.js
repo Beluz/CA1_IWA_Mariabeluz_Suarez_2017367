@@ -61,7 +61,7 @@ router.post('/post/json', function(req, res){
         //function to read in XML file, converted to JSON, add a new object and write back to XML
         xmlFileToJs('PaddysCafe.xml', function(err, result){
             if(err) throw (err);
-                result.cafemenu.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price}); //read xml adn converts to JSON
+                result.Spa.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price}); //read xml adn converts to JSON
                 console.log(result);
                 jsToXmlFile('PaddysCafe.xml', result, function(err){
                     if(err) console.log(err);
@@ -85,8 +85,8 @@ router.post('/post/delete', function(req, res) {
     // Function to read in XML file, convert it to JSON, delete the required object and write back to XML file
     xmlFileToJs('PaddysCafe.xml', function(err, result) {
       if (err) throw (err);
-      //This is where we delete the object based on the position of the section and position of the entree, as being passed on from index.html
-      delete result.cafemenu.section[obj.section].entree[obj.entree];
+      //This is where we delete the object based on the position of the Spa, section and position of the entree, as being passed on from index.
+      delete result.Spa.section[obj.section].entree[obj.entree];
       //This is where we convert from JSON and write back our XML file
       jsToXmlFile('PaddysCafe.xml', result, function(err) {
         if (err) console.log(err);
