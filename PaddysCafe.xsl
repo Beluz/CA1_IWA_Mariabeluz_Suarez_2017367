@@ -35,6 +35,7 @@
                                     <xsl:value-of select="@name" />
                                 </td>
                             </tr>
+                            
                             <xsl:for-each select="entree">
                                 <tr id="{position()}">
                                     <xsl:attribute name="vegetarian">
@@ -49,13 +50,14 @@
                                     <td align="right">
                                         <xsl:value-of select="price" />
                                     </td>
+                                    
                                 </tr>
                             </xsl:for-each>
                         </xsl:for-each>
                     </tbody>
                 </table><br/>
 
-<div class="col-lg-4 text-center order-2">
+<div class="col-lg-8 text-center order-2">
             <form enctype="application/json" action="/post/json" method="post">
                 <div class="form-group">
                     <select class="form-control" name="sec_n">
