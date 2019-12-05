@@ -20,7 +20,7 @@
                 <table id="menuTable" class="indent">
                     <thead>
                         <tr>
-                            <th colspan="3">Paddy's Cafe Menu</th>
+                            <th colspan="3">Spa & Wellness Menu</th>
                         </tr>
                         <tr>
                             <th>Select</th>
@@ -29,7 +29,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <xsl:for-each select="/cafemenu/section">
+                        <xsl:for-each select="/Spa/section">
                             <tr>
                                 <td colspan="3">
                                     <xsl:value-of select="@name" />
@@ -59,10 +59,10 @@
             <form enctype="application/json" action="/post/json" method="post">
                 <div class="form-group">
                     <select class="form-control" name="sec_n">
-                        <option value="0">Side Dishes</option>
-                        <option value="1">Breakfast</option>
-                        <option value="2">Lunch</option>
-                        <option value="3">Dinner</option>
+                        <option value="0">Bath Treatments</option>
+                        <option value="1">Body Massages</option>
+                        <option value="2">Facial Treatments</option>
+                        <option value="3">Body Refining and Firming</option>
                     </select>
                 </div>
                 <div class="form-group">

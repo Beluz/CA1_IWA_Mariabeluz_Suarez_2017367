@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<cafemenu>
-  <section name="Side Dishes">
+<Spa>
+  <section name="Bath Treatments">
     <entree vegetarian="true">
-      <item>Potato Salad</item>
-      <price>4.95</price>
+      <item>Exfoliating Marine Wrap</item>
+      <price>50.00</price>
     </entree>
     <entree>
-      <item>Paddy's French Fries</item>
-      <price>7.50</price>
+      <item>Dry Skin Cocooning Ritual</item>
+      <price>65.50</price>
     </entree>
     <entree>
-      <item>Huevos Rancheros</item>
-      <price>8.50</price>
+      <item>All type Skin Acuatic Marine Scrub</item>
+      <price>40.00</price>
     </entree>
     <entree>
       <item>tacos</item>
       <price>10</price>
     </entree>
   </section>
-  <section name="Breakfast">
+  <section name="Body Massages">
     <entree>
-      <item>Two Eggs, any style</item>
-      <price>4.99</price>
+      <item>Merveille Arctique Massage</item>
+      <price>59.99</price>
     </entree>
     <entree>
-      <item>Paddy's Famous Peppers and Eggs</item>
-      <price>8.29</price>
+      <item>Mahana Massage</item>
+      <price>49.99</price>
     </entree>
     <entree vegetarian="true">
-      <item>Bowl of fruit</item>
-      <price>6.99</price>
+      <item>Indian Massage</item>
+      <price>69.99</price>
     </entree>
     <entree vegetarian="true">
-      <item>French toast</item>
-      <price>5.25</price>
+      <item>Thai Massage</item>
+      <price>59.99</price>
     </entree>
     <entree>
-      <item>Croissant</item>
-      <price>3.99</price>
+      <item>Detox Massage</item>
+      <price>55.00</price>
     </entree>
   </section>
-  <section name="Lunch">
+  <section name="Facial Treatments">
     <entree>
-      <item>Grilled Chicken Sandwich</item>
-      <price>7.99</price>
-    </entree>
-    <entree>
-      <item>Tuna Melt</item>
-      <price>6.99</price>
-    </entree>
-    <entree vegetarian="true">
-      <item>Pasta Salad</item>
-      <price>7.39</price>
-    </entree>
-  </section>
-  <section name="Dinner">
-    <entree>
-      <item>Ribeye Steak</item>
+      <item>Iluminating Radiance</item>
       <price>19.99</price>
     </entree>
     <entree>
-      <item>Chilean Sea Bass</item>
-      <price>12.99</price>
+      <item>Anti-Ageing</item>
+      <price>29.99</price>
     </entree>
     <entree vegetarian="true">
-      <item>Linguini with Grilled Porcini Mushroom</item>
-      <price>9.79</price>
+      <item>Lift Facial</item>
+      <price>25.00</price>
     </entree>
   </section>
-</cafemenu>
+  <section name="Body Refining and Firming">
+    <entree>
+      <item>Body Sculpt</item>
+      <price>19.99</price>
+    </entree>
+    <entree>
+      <item>Frigi-Thalgo</item>
+      <price>22.99</price>
+    </entree>
+    <entree vegetarian="true">
+      <item>Ipulse treatment</item>
+      <price>9.99</price>
+    </entree>
+  </section>
+</Spa>
