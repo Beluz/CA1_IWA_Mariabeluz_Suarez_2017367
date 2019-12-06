@@ -40,8 +40,8 @@ router.get('/get/html', function(req, res) {
 
     res.writeHead(200, {'Content-Type': 'text/html'});
 
-    var xml = fs.readFileSync('PaddysCafe.xml', 'utf8');
-    var xsl = fs.readFileSync('PaddysCafe.xsl', 'utf8');
+    var xml = fs.readFileSync('Spa.xml', 'utf8');
+    var xsl = fs.readFileSync('Spa.xsl', 'utf8');
    // console.log(xml);
     var doc = xmlParse(xml);
     var stylesheet = xmlParse(xsl);
@@ -57,13 +57,13 @@ router.post('/post/json', function(req, res){
     
     //'router.post'> posts info to the function
     function appendJSON(obj){
-        console.log(obj);
+       // console.log(obj);
         //function to read in XML file, converted to JSON, add a new object and write back to XML
-        xmlFileToJs('PaddysCafe.xml', function(err, result){
+        xmlFileToJs('Spa.xml', function(err, result){
             if(err) throw (err);
                 result.Spa.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price}); //read xml adn converts to JSON
-                console.log(result);
-                jsToXmlFile('PaddysCafe.xml', result, function(err){
+               // console.log(result);
+                jsToXmlFile('Spa.xml', result, function(err){
                     if(err) console.log(err);
                 })
         })
@@ -83,12 +83,12 @@ router.post('/post/delete', function(req, res) {
   // Function to read in a JSON file, add to it & convert to XML
   function deleteJSON(obj) {
     // Function to read in XML file, convert it to JSON, delete the required object and write back to XML file
-    xmlFileToJs('PaddysCafe.xml', function(err, result) {
+    xmlFileToJs('Spa.xml', function(err, result) {
       if (err) throw (err);
       //This is where we delete the object based on the position of the Spa, section and position of the entree, as being passed on from index.
       delete result.Spa.section[obj.section].entree[obj.entree];
       //This is where we convert from JSON and write back our XML file
-      jsToXmlFile('PaddysCafe.xml', result, function(err) {
+      jsToXmlFile('Spa.xml', result, function(err) {
         if (err) console.log(err);
       })
     })
