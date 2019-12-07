@@ -30,6 +30,18 @@
         });       
     </script>
 
+<!-- THIS CODE WAS TAKEN AND MODIFIED FROM https://uniwebsidad.com/libros/javascript/capitulo-7/validacion -->
+    <script>
+        function myFunction() {
+            valor = document.getElementById("price").value;
+            if( isNaN(valor) ) {
+            
+            alert("Price must be a valid number. Please try again!");
+            return false;
+            }
+        }
+    </script>
+
 </head>
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -141,10 +153,10 @@
             <div class="row">
             <!-- The next div will show the table -->
             <div id="results" class="col-lg-8 text-center order-1"></div>
-                <div class="col-lg-4 text-center order-3">
+                <div class="col-lg-4 text-center order-2">
                     <!-- THIS SECTION OF CODE WAS TAKEN FROM  https://gitpod.io/#https://github.com/mikhail-cct/CA1-In-class-Demo -->
                     <!-- FORM AND DELETE BUTTON -->
-                    <form enctype="application/json" action="/post/json" method="post">
+                    <form enctype="application/json" action="/post/json" method="post" onsubmit="return myFunction()">
                         <div class="form-group">
                             <select class="form-control" name="sec_n">
                                 <option value="0">Bath Treatments</option>
@@ -157,7 +169,7 @@
                             <input class="form-control" type="text" name="item" placeholder="Service" />
                         </div>
                         <div class="form-group">
-                            <input class="form-control" type="text" name="price" placeholder="Price" />
+                            <input class="form-control" type="text" name="price" placeholder="Price" id="price"/>
                         </div>
                         <button type="submit" class="btn btn-secondary btn-block" >Add new Service</button>
                     </form>
@@ -168,8 +180,8 @@
                         </div>
                     </div>
                         <!-- FORM TO DO THE CALCULATION AND HIGHLIGHT ELEMENTS -->
-                    <div class="col-lg-14 text-right order-2">
-                        <form>
+                    <div class="col-lg-14 text-right order-3">
+                        <form class="">
                                <input class="btn btn-block btn-secondary" type="button" name="btnCalcBill" value="Calculate Bill" id="calcBill" />
                                 Total: €
                                 <input type="text" name="txtBillAmt" />

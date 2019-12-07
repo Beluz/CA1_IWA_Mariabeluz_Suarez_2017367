@@ -13,6 +13,10 @@
       <item>All type Skin Acuatic Marine Scrub</item>
       <price>40.00</price>
     </entree>
+    <entree>
+      <item>tacos</item>
+      <price>8.50</price>
+    </entree>
   </section>
   <section name="Body Massages">
     <entree>
