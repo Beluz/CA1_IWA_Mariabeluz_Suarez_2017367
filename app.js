@@ -52,7 +52,7 @@ router.get('/get/html', function(req, res) {
 
 });
 
-//POST request to add JSON & xml files
+//POST request to ADD JSON & xml files
 router.post('/post/json', function(req, res){ 
     
     //'router.post'> posts info to the function
@@ -62,7 +62,8 @@ router.post('/post/json', function(req, res){
         xmlFileToJs('Spa.xml', function(err, result){
             if(err) throw (err);
                 result.Spa.section[obj.sec_n].entree.push({'item': obj.item, 'price': obj.price}); //read xml adn converts to JSON
-               // console.log(result);
+                
+                // console.log(result);
                 jsToXmlFile('Spa.xml', result, function(err){
                     if(err) console.log(err);
                 })
@@ -77,7 +78,7 @@ router.post('/post/json', function(req, res){
     
 });
 
-// POST request to add to JSON & XML files
+// POST request to DELETE to JSON & XML files
 router.post('/post/delete', function(req, res) {
 
   // Function to read in a JSON file, add to it & convert to XML
@@ -94,10 +95,39 @@ router.post('/post/delete', function(req, res) {
     })
   }
 
-  // Call appendJSON function and pass in body of the current POST request
+  // Call deleteJSON function and pass in body of the current POST request
   deleteJSON(req.body);
 
 });
+
+
+// POST request to UPDATE to JSON & XML files
+router.post('/post/update', function(req, res) {
+  
+  // Function to read in a JSON file, DELETE to it & convert to XML
+  function updateJSON(obj) {
+      
+    // Function to read in XML file, convert it to JSON, update the required object and write back to XML file
+    xmlFileToJs('Spa.xml', function(err, result) {
+      if (err) throw (err);
+      //This is we update the row that was selected
+      result.Spa.section[obj.section].entree[obj.entree].update({'item': obj.item, 'price': obj.price});
+      //result.Spa.section[obj.section].entree[obj.entree];
+      //This is where we convert from JSON and write back our XML file
+      jsToXmlFile('Spa.xml', result, function(err) {
+        if (err) console.log(err);
+      })
+    })
+  }
+
+  //call updateJSON function and pass in body of the current POST request
+    updateJSON(req.body);
+
+    //Re-direct the browser back to the page  where the POST request came from
+   res.redirect('back');
+
+});
+
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
   var addr = server.address();

@@ -22,11 +22,11 @@ function select_row()
 		$(this).addClass("selected");
 		var section = $(this).prevAll("tr").children("td[colspan='3']").length - 1;
 		var entree = $(this).attr("id") - 1;
-		delete_row(section, entree);
+		delete_or_update_row(section, entree);
 	})
 };
 
-function delete_row(sec, ent)
+function delete_or_update_row(sec, ent)
 {
 	$("#delete").click(function ()
 	{
@@ -43,7 +43,24 @@ function delete_row(sec, ent)
 			success: setTimeout(draw_table, 1000)
 		})
 	})
+
+    $("#edit").click(function ()
+	{ 
+		$.ajax(
+		{
+			url: "/post/update",
+			type: "POST",
+			data:
+			{ 
+				section: sec,
+				entree: ent
+			},
+			cache: false,
+			success: setTimeout(draw_table, 1000)
+		}) 
+	})
 };
+
 
 
 $(document).ready(function(){

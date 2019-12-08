@@ -27,20 +27,37 @@
                 document.querySelector("#showVeg").addEventListener("click", function() {
                     highlightVegetarian("menuTable", this.checked);
                 });	
+                
         });       
     </script>
 
 <!-- THIS CODE WAS TAKEN AND MODIFIED FROM https://uniwebsidad.com/libros/javascript/capitulo-7/validacion -->
+<!-- THE CODE USE THE JAVASCRIPT FUNCTION isNaN TO VALIDATE IF IS A NUMBER OTHERWISE RETURN FALSE AND THE FORM IS NOT SEND-->
     <script>
-        function myFunction() {
+        function validationNumber() {
             valor = document.getElementById("price").value;
             if( isNaN(valor) ) {
-            
-            alert("Price must be a valid number. Please try again!");
+                alert("Price must be a valid number. Please try again!");
             return false;
             }
         }
+
+     // THIS CODE WAS TAKEN AND MODIFIED FROM https://stackoverflow.com/questions/2753308/different-form-action-depending-on-button-pressed 
+        window.addEventListener("load", function() {
+            document.getElementById("add").onclick = function() { 
+                document.getElementById("form1").action = "/post/json";
+            };
+            document.getElementById("edit").onclick = function() { 
+                document.getElementById("form1").action = "/post/update";
+            };
+
+        }); 
     </script>
+<!-- ----------------------------------------------------------------------------------------------------------- -->
+
+    
+
+
 
 </head>
 
@@ -153,10 +170,11 @@
             <div class="row">
             <!-- The next div will show the table -->
             <div id="results" class="col-lg-8 text-center order-1"></div>
-                <div class="col-lg-4 text-center order-2">
+                <div class="col-lg-4 text-center order-3">
                     <!-- THIS SECTION OF CODE WAS TAKEN FROM  https://gitpod.io/#https://github.com/mikhail-cct/CA1-In-class-Demo -->
-                    <!-- FORM AND DELETE BUTTON -->
-                    <form enctype="application/json" action="/post/json" method="post" onsubmit="return myFunction()">
+                    <!-- FORM AND DELETE BUTTON ALSO CLIENT-SIDE VALIDATION-->
+                    <!-- <form enctype="application/json" action="/post/json" method="post" onsubmit="return validationNumber()"> -->
+                    <form enctype="application/json"  method="post" onsubmit="return validationNumber()" id="form1"> 
                         <div class="form-group">
                             <select class="form-control" name="sec_n">
                                 <option value="0">Bath Treatments</option>
@@ -171,7 +189,8 @@
                         <div class="form-group">
                             <input class="form-control" type="text" name="price" placeholder="Price" id="price"/>
                         </div>
-                        <button type="submit" class="btn btn-secondary btn-block" >Add new Service</button>
+                        <button type="submit" class="btn btn-secondary btn-block" id="add">Add new Service</button>
+                        <button type="submit" class="btn btn-secondary btn-block" id="edit">Edit a Service</button>
                     </form>
                     <div class="container">
                         </br><div class="form-group">
@@ -180,9 +199,9 @@
                         </div>
                     </div>
                         <!-- FORM TO DO THE CALCULATION AND HIGHLIGHT ELEMENTS -->
-                    <div class="col-lg-14 text-right order-3">
+                    <div class="col-lg-14 text-right order-2">
                         <form class="">
-                               <input class="btn btn-block btn-secondary" type="button" name="btnCalcBill" value="Calculate Bill" id="calcBill" />
+                               <input class="btn btn-primary btn-block" type="button" name="btnCalcBill" value="Calculate Bill" id="calcBill" />
                                 Total: €
                                 <input type="text" name="txtBillAmt" />
                                 </br>
