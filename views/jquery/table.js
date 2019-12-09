@@ -21,15 +21,16 @@ function select_row()
 		$(".selected").removeClass("selected");
 		$(this).addClass("selected");
 		var section = $(this).prevAll("tr").children("td[colspan='3']").length - 1;
-		var entree = $(this).attr("id") - 1;
-		delete_or_update_row(section, entree);
+        var entree = $(this).attr("id") - 1;
+        
+        delete_or_update_row(section, entree);
 	})
 };
 
 function delete_or_update_row(sec, ent)
-{
+{ 
 	$("#delete").click(function ()
-	{
+	{ 
 		$.ajax(
 		{
 			url: "/post/delete",

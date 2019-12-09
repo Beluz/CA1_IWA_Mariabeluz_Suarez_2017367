@@ -6,26 +6,18 @@
       <price>50.00</price>
     </entree>
     <entree>
-      <item>Dry Skin Cocooning Ritual</item>
-      <price>65.50</price>
-    </entree>
-    <entree>
       <item>All type Skin Acuatic Marine Scrub</item>
       <price>40.00</price>
     </entree>
     <entree>
-      <item>tacos</item>
-      <price>9</price>
+      <item>Body S rub</item>
+      <price>55.50</price>
     </entree>
   </section>
   <section name="Body Massages">
     <entree>
       <item>Merveille Arctique Massage</item>
       <price>59.99</price>
-    </entree>
-    <entree>
-      <item>Mahana Massage</item>
-      <price>49.99</price>
     </entree>
     <entree vegetarian="true">
       <item>Indian Massage</item>

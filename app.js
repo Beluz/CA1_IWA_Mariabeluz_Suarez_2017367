@@ -101,18 +101,16 @@ router.post('/post/delete', function(req, res) {
 });
 
 
-// POST request to UPDATE to JSON & XML files
+// POST request to DELETE to JSON & XML files
 router.post('/post/update', function(req, res) {
-  
-  // Function to read in a JSON file, DELETE to it & convert to XML
-  function updateJSON(obj) {
-      
-    // Function to read in XML file, convert it to JSON, update the required object and write back to XML file
+
+  // Function to read in a JSON file, add to it & convert to XML
+  function delJSON(obj) {
+    // Function to read in XML file, convert it to JSON, delete the required object and write back to XML file
     xmlFileToJs('Spa.xml', function(err, result) {
       if (err) throw (err);
-      //This is we update the row that was selected
-      result.Spa.section[obj.section].entree[obj.entree].update({'item': obj.item, 'price': obj.price});
-      //result.Spa.section[obj.section].entree[obj.entree];
+      //This is where we delete the object based on the position of the Spa, section and position of the entree, as being passed on from index.
+      delete result.Spa.section[obj.section].entree[obj.entree];
       //This is where we convert from JSON and write back our XML file
       jsToXmlFile('Spa.xml', result, function(err) {
         if (err) console.log(err);
@@ -120,13 +118,11 @@ router.post('/post/update', function(req, res) {
     })
   }
 
-  //call updateJSON function and pass in body of the current POST request
-    updateJSON(req.body);
-
-    //Re-direct the browser back to the page  where the POST request came from
-   res.redirect('back');
+  // Call deleteJSON function and pass in body of the current POST request
+  delJSON(req.body);
 
 });
+
 
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
